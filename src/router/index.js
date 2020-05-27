@@ -22,21 +22,24 @@ Vue.use(VueRouter)
   {
     path: '/articles',
     name: 'Articles',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+   
     component: () => import(/* webpackChunkName: "about" */ '../views/Articles.vue')
 
   },
   {
     path: '/register',
     name: 'Medlem',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+   
     component: () => import(/* webpackChunkName: "about" */ '../views/Medlem.vue')
 
   },
+  {
+    path: '/sendOrder',
+    name: 'SendOrder',
+   
+    component: () => import(/* webpackChunkName: "about" */ '../views/SendOrder.vue')
+
+  }
   
 ]
 

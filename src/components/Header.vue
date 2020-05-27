@@ -2,9 +2,9 @@
     <div>
         <div id="header-info">
        
-        <div id="headline">
+        <router-link to="/" id="headline">
             <p>BÄSTA AFFÄREN</p>
-        </div>
+        </router-link>
        
         <div id="medlem-kundvagn">
         <router-link to="/articles" id="produkter" class="btn" @click.native="updateArticles">
@@ -13,9 +13,9 @@
         <router-link to="/register" id="medlem" class="btn">
             <p>Bli Medlem</p>
         </router-link>
-        <div id="kundvagn" class="btn">
-            <p>kundvagn</p>
-        </div>
+        <router-link to="/sendorder" id="kundvagn" class="btn">
+            <p>kundvagn {{itemsInCart}}</p>
+        </router-link>
         </div>
 
         </div>
@@ -30,6 +30,11 @@ export default {
           console.log("HEJ")
           this.$store.dispatch("updateArticles")
           console.log(this.$store.articles)
+      }
+  },
+  computed :{
+      itemsInCart(){
+          return this.$store.state.itemsInCart
       }
   }
 }
