@@ -39,6 +39,20 @@ Vue.use(VueRouter)
    
     component: () => import(/* webpackChunkName: "about" */ '../views/SendOrder.vue')
 
+  },
+  {
+    path: '/confirmed',
+    name: 'MemberConfirmation',
+   
+    component: () => import(/* webpackChunkName: "about" */ '../views/MemberConfirmation.vue')
+
+  },
+  {
+    path: '/orderconfirmed',
+    name: 'OrderConfirmation',
+   
+    component: () => import(/* webpackChunkName: "about" */ '../views/OrderConfirmation.vue')
+
   }
   
 ]

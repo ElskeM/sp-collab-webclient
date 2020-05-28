@@ -43,9 +43,17 @@ export default {
             zipcode: "",
             city: "",
             output: "",
-            response: {}
+            response: undefined,
+            customer: {}
         }
     },
+
+    computed: {
+        customerNr(){
+            return this.$store.state.currentCustomerNr
+        }
+    },
+
     methods: {
         async sendForm() {
             let data = {
@@ -64,7 +72,21 @@ export default {
                 },
                 body: JSON.stringify(data)
             })
-            .then((res) => console.log(res))
+            .then((res) => res.json()
+                .then((json)=> 
+            //    console.log(JSON.stringify(json))))
+               this.$store.commit("setCurrentCustomer", json)))
+                
+            //.then((json)=>  this.$store.commit("setCurrentCustomerNr", json.customerNr))
+            // .then(()=> console.log(this.customer))
+            // .then(() => this.customer = JSON.parse(this.customer))
+        
+
+            
+          .then(()=> this.$router.push("/confirmed"))
+            
+          
+            
       
 
         }

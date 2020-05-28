@@ -9,7 +9,8 @@ export default new Vuex.Store({
     articles: [],
     cart: [],
     itemsInCart: 0,
-    currentCustomerNr: 111
+    currentCustomerNr: 0,
+    currentCustomer: {}
   },
   mutations: {
     addArticles(state, data) {
@@ -23,6 +24,12 @@ export default new Vuex.Store({
     },
     addItemToCart(state){
       state.itemsInCart++
+    },
+    setCurrentCustomerNr(state, cNr) {
+      state.currentCustomerNr = cNr;
+    },
+    setCurrentCustomer(state, json) {
+      state.currentCustomer = json
     }
   },
   actions: {

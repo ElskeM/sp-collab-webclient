@@ -9,3 +9,9 @@
   </div>
 </template>
 
+<style scoped>
+  .home {
+    font-family: sans-serif;
+  }
+</style>
+

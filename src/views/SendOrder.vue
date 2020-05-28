@@ -73,7 +73,7 @@ export default {
             return this.$store.state.cart
         },
         customerNr() {
-            return this.$store.state.currentCustomerNr
+            return this.$store.state.currentCustomer.customerNr
         }
     },
     methods: {
@@ -123,11 +123,12 @@ export default {
             .then((res) => console.log(res))
             .then(console.log(JSON.stringify(this.order)))
             .then(console.log(this.customer))
+            .then(this.$router.push("/orderconfirmed"))
 
         }
     },
     mounted: function() {
-         this.fetchCustomer(111)
+         this.fetchCustomer(this.customerNr)
          .then(()=> this.createOrderArticles())
          .then(()=> this.createOrder())
         

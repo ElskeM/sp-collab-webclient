@@ -5,6 +5,7 @@
         <router-link to="/" id="headline">
             <p>BÄSTA AFFÄREN</p>
         </router-link>
+        <p v-if="customer.firstName" id="namn">Inloggad som {{customer.firstName}} {{customer.lastName}}</p>
        
         <div id="medlem-kundvagn">
         <router-link to="/articles" id="produkter" class="btn" @click.native="updateArticles">
@@ -35,6 +36,9 @@ export default {
   computed :{
       itemsInCart(){
           return this.$store.state.itemsInCart
+      },
+      customer(){
+          return this.$store.state.currentCustomer
       }
   }
 }
@@ -49,6 +53,7 @@ export default {
         flex-direction: row;
         align-items: center;
         background-color: lightblue;
+        font-family: sans-serif;
 
         #headline {
             margin-left: 5%;
@@ -58,6 +63,10 @@ export default {
                 color: red;
                 font-size: 50px;
             }
+        }
+
+        #namn {
+            margin-left: auto
         }
 
         #medlem-kundvagn {
