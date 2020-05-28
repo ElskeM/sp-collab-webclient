@@ -1,22 +1,3 @@
-<!--<template>
-    <div>
-        <form action="http://localhost:8080/olfdb/Pantheon/customersweb" method="post">
-            <div id="form-div">
-                <label>Förnamn<input type="text" name="firstname" id="firstname" placeholder="Förnamn"></label>
-                <label>Efternamn<input type="text" name="lastname" id="lastname" placeholder="Efternamn"></label>
-                <label>Address<input type="text" name="address" id="address" placeholder="Adress"></label>
-                <label>Postnummer<input type="text" name="zipcode" id="zipcode" placeholder="Postnr"></label>
-                <label>Postort<input type="text" name="city" id="city" placeholder="Postort"></label>
-                <label><input id="skicka-btn" type="submit" value="Skicka"></label>
-            </div>
-        
-        </form>
-
-    </div>
-</template> -->
-
-
-
 
 <template>
     <div>
@@ -61,11 +42,12 @@ export default {
             address: "",
             zipcode: "",
             city: "",
-            output: ""
+            output: "",
+            response: {}
         }
     },
     methods: {
-        sendForm() {
+        async sendForm() {
             let data = {
             firstName: this.firstname,
             lastName: this.lastname,
@@ -75,7 +57,7 @@ export default {
             discount: 0,
             };
 
-            fetch("http://localhost:8080/olfdb/Pantheon/customersweb", {
+            await fetch("http://localhost:8080/olfdb/Pantheon/customersweb", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

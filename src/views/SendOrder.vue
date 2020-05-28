@@ -1,13 +1,61 @@
 <template>
-    <div>
-        <h1>Skicka din order</h1>
-        <p>Din order:</p>
-         <div v-for="(key, value, index) of articles" :key="index">
-             <div>{{key}} st {{value}}</div>
-        </div>      
-        <button @click="sendOrder">Skicka in</button>
+    <div id="order">
+        <div id="order-div">
+         <h1>Skicka din order</h1>
+         <p>Din order:</p>
+             <div v-for="(key, value, index) of articles" :key="index">
+                 <div class="articles">
+                    <span class="item">{{value}}</span>
+                    <span class="amount">antal: {{key}}</span>
+                 </div>
+            </div>      
+            <button id="send-btn" @click="sendOrder">Skicka in</button>
+        </div>
     </div>
 </template>
+
+<style lang="scss" scoped>
+    #order {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        
+
+        #order-div {
+            border: 3px solid rgb(32, 32, 32);
+            border-radius: 3px;
+            margin: 10px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-family: sans-serif;
+
+            #send-btn {
+    
+                font-weight: bolder;
+                font-size: 1.1em;
+                padding: 10px 10px;
+                margin-top: 10px;
+                width: 100px;
+                background-color: red;
+                color: white;
+                border-radius: 3px;
+                border: 2px solid rgb(145, 10, 10)
+            }
+
+            .articles {
+                display:flex;
+                border: 1px dotted rgb(41, 40, 40);
+
+                .amount {
+                    margin-left: auto;
+                }
+            }
+        }
+
+    }
+</style>
 
 
 <script>
@@ -61,7 +109,7 @@ export default {
             this.order["customer"] = this.customer,
             this.order["articles"] = this.orderArticles,
             this.order["totalDiscount"] = 0
-            },
+        },
 
         sendOrder(){
 
@@ -111,3 +159,4 @@ export default {
 "total":0.0,
 "totalDiscount":0.0}
 -->
+
